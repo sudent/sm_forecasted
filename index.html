@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forecast</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <style>
+        .align-center {text-align: center;}
+        .month-view {float: left; width: 8.3%;}
+        #forecast-header td.header-legend {width: 8%;}
+    </style>
+</head>
+<body style="margin: 10px;">
+
+    <div id="forecastapp">
+        <header></header>
+        <hr />
+        <div>
+            <div id="legend" style="float: left; width: 7.7%;">
+                <p>Month</p>
+                <p>Add In Primary (Income)</p>
+                <p>Add In Primary (Income)</p>
+            </div>
+            <div id="month-list" style="float: left; width: 92.3%;"></div>
+        </div>
+    </div>
+
+    <script src="js/jquery-latest.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/backbone.js"></script>
+    <script src="js/backbone-localstorage.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script type="text/template" id="month-template">
+        <div class="month-view align-center">
+            <p><%- name %></p>
+            <p>
+                <input type="text" class="input-small" value="<%- projectIncome %>" />
+                <a class="copy"></a>
+            </p>
+            <p>RM <%- projectIncomeR %></p>
+        </div>
+    </script>
+
+    <script type="text/template" id="header-template">
+        <table class="table" id="forecast-header">
+            <thead>
+            <tr>
+                <th colspan="2"><%- year %></th>
+            </tr>
+            </thead>
+            <tr>
+                <td class="header-legend">Starting Primary</td>
+                <td><input type="text" id="starting_primary" class="input-small" value="<%- startingPrimary %>"></td>
+            </tr>
+            <tr>
+                <td class="header-legend">Starting Emergency Fund</td>
+                <td><input type="text" id="starting_fund" class="input-small" value="<%- startingFund %>"></td>
+            </tr>
+        </table>
+    </script>
+</body>
+</html>
